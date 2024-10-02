@@ -1,4 +1,3 @@
-/* Navbar general styles */
 .navbar {
     display: flex;
     justify-content: flex-end;
@@ -16,8 +15,6 @@
     padding: 0;
 }
 
-/* For non-logged-in users */
-/* .navbar ul li, */
 .navbar ul li a,
 .navbar ul li button {
     color: #000;
@@ -68,13 +65,12 @@
     cursor: pointer;
 }
 
-/* Dropdown styles */
 .navbar .dropdown {
     display: none;
     position: absolute;
     width: 150px;
     right: 0;
-    top: 40px;  /* Adjusted from 100% to avoid overlap */
+    top: 40px; 
     background-color: #fff;
     border-radius: 5px;
     overflow: hidden;
@@ -100,7 +96,6 @@
     background-color: #eee;
 }
 
-/* Show dropdown when .active class is applied */
 .navbar .dropdown.active {
     display: block;
 }

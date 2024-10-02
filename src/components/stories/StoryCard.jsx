@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
-import "./storycard.css"; // Keep your existing styles here
+import "./storycard.css";
 import StoryViewer from "./StoryViewer";
 import AddEditStoryPage from "../../pages/AddEditStoryPage";
 
@@ -18,7 +17,6 @@ const StoryCard = ({ story }) => {
 
   const fetchStory = async () => {
     try {
-      // Fetch the first slide of the story (if any)
       if (story.slides?.length > 0) {
         const firstSlideId =
           typeof story.slides[0] === "object"
@@ -29,7 +27,6 @@ const StoryCard = ({ story }) => {
         );
         const firstSlide = response.data;
 
-        // If the first slide has a contentUrl, set it as the image URL
         if (firstSlide.contentUrl) {
           setImgUrl(firstSlide.contentUrl);
         } else {
@@ -45,7 +42,7 @@ const StoryCard = ({ story }) => {
   };
 
   useEffect(() => {
-    fetchStory(); // Fetch story image
+    fetchStory(); 
   }, [story]);
 
   const openEditModal = () => {
@@ -79,7 +76,6 @@ const StoryCard = ({ story }) => {
         story.createdBy._id === loggedInUserId && (
           <button className="edit-button" onClick={openEditModal}>
             edit
-            {/* <AddEditStoryPage story={story}/> */}
           </button>
         )}
 

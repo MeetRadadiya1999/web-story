@@ -1,5 +1,5 @@
 import React from "react";
-import "./filter.css"; // Add your styles here
+import "./filter.css"; 
 
 const StoryFilter = ({ selectedCategory, setSelectedCategory, categories }) => {
   return (

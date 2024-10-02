@@ -1,4 +1,3 @@
-// src/pages/StoryPage.js
 import React from 'react';
 import StoryViewer from '../components/stories/StoryViewer';
 

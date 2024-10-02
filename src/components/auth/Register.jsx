@@ -15,7 +15,7 @@ const Register = () => {
     try {
       const res = await axios.post(`${process.env.REACT_APP_API_URL}/users/register`, { name, email, password });
       localStorage.setItem('token', res.data.token);
-      localStorage.setItem('user_id', res.data.user.id);  // Store the user ID
+      localStorage.setItem('user_id', res.data.user.id); 
       localStorage.setItem('name', res.data.user.name);
 
       toast.success('Registered successfully');

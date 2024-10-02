@@ -16,15 +16,14 @@ import "./storyviewer.css";
 const StoryViewer = ({ onClose, storyId }) => {
   const navigate = useNavigate();
   const [story, setStory] = useState(null);
-  const [slides, setSlides] = useState([]); // Separate state for slides
+  const [slides, setSlides] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const token = localStorage.getItem("token");
 
-  // Timer reference
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 10000); // Change slide every 10 seconds
+    }, 10000); 
 
     return () => clearInterval(interval);
   }, [slides.length]);
@@ -36,7 +35,6 @@ const StoryViewer = ({ onClose, storyId }) => {
       );
       setStory(res.data);
 
-      // Fetch slide details using the slide IDs
       const slideRequests = res.data.slides.map((slide) => {
         const slideId = typeof slide === "object" ? slide._id : slide;
         return axios.get(`${process.env.REACT_APP_API_URL}/slides/${slideId}`);
@@ -44,7 +42,7 @@ const StoryViewer = ({ onClose, storyId }) => {
 
       const slideResponses = await Promise.all(slideRequests);
       const slideDetails = slideResponses.map((response) => response.data);
-      setSlides(slideDetails); // Set the detailed slides data
+      setSlides(slideDetails); 
     } catch (error) {
       toast.error(error.response?.data?.message || "Failed to fetch story");
     }
@@ -67,7 +65,7 @@ const StoryViewer = ({ onClose, storyId }) => {
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      fetchStory(); // Refresh story after liking
+      fetchStory();
       toast.success("Slide liked");
     } catch (error) {
       if (error.response?.status === 401) {
@@ -133,7 +131,7 @@ const StoryViewer = ({ onClose, storyId }) => {
 
   const handleOverlayClick = (e) => {
     if (e.target.id === "closeClick") {
-      onClose(); // Close modal if overlay is clicked
+      onClose(); 
     }
   };
 
@@ -145,13 +143,11 @@ const StoryViewer = ({ onClose, storyId }) => {
       id="closeClick"
       onClick={handleOverlayClick}
     >
-      {/* Story Viewer Content */}
       <div
         className="story-viewer-content"
         id="closeClick"
         onClick={handleOverlayClick}
       >
-        {/* Previous Button: Positioned before the slide */}
         <button
           className="prev-button"
           onClick={handlePrevSlide}
@@ -160,7 +156,6 @@ const StoryViewer = ({ onClose, storyId }) => {
           <FaArrowLeft />
         </button>
 
-        {/* Slide Content */}
         <div className="slide-container">
           <div
             className="timer-bar"
@@ -171,7 +166,7 @@ const StoryViewer = ({ onClose, storyId }) => {
               <div className="slide-content">
                 {slides[currentIndex].contentType === "image" ? (
                   <img
-                    className="slide-media" // Add this class for styling
+                    className="slide-media" 
                     src={slides[currentIndex].contentUrl}
                     alt={`Slide ${currentIndex + 1}`}
                   />
@@ -186,12 +181,10 @@ const StoryViewer = ({ onClose, storyId }) => {
                 )}
                                
                 <div className="overlay-content">
-                  {/* Close Button: Now in the top-left */}
                   <button className="close-button" onClick={onClose}>
                     <FaTimes />
                   </button>
 
-                  {/* Share Button: Now in the top-right */}
                   <button className="share-button" onClick={handleShare}>
                     <FaShareAlt /> Share
                   </button>
@@ -221,7 +214,6 @@ const StoryViewer = ({ onClose, storyId }) => {
           </div>
         </div>
 
-        {/* Next Button: Positioned after the slide */}
         <button
           className="next-button"
           onClick={handleNextSlide}

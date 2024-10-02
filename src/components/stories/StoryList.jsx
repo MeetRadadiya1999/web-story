@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import StoryCard from "./StoryCard";
 import { toast } from "react-toastify";
-import "./storylist.css"; // New CSS file
+import "./storylist.css"; 
 
 const StoryList = ({ selectedCategory }) => {
   const [storiesByCategory, setStoriesByCategory] = useState({});

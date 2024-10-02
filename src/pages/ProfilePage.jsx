@@ -1,4 +1,3 @@
-// src/pages/ProfilePage.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -35,7 +34,6 @@ const ProfilePage = () => {
       <h2>Your Profile</h2>
       <p><strong>Name:</strong> {user.name}</p>
       <p><strong>Email:</strong> {user.email}</p>
-      {/* Add more user details if needed */}
     </div>
   );
 };

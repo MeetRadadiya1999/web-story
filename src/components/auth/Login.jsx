@@ -1,9 +1,7 @@
-// frontend/src/components/Auth/Login.js
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useNavigate, Link } from 'react-router-dom';
-import API from '../../services/api'; // Import the centralized API service
-
+import API from '../../services/api'; 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -14,18 +12,14 @@ const Login = () => {
     try {
       const res = await API.post('/users/login', { email, password });
   
-      // Assuming the response contains both token and user data
       if (res.data.token && res.data.user) {
-        // Store the token and user ID in localStorage
         localStorage.setItem('token', res.data.token);
-        localStorage.setItem('user_id', res.data.user.id);  // Store the user ID
-        localStorage.setItem('name', res.data.user.name);  // Store the user name
+        localStorage.setItem('user_id', res.data.user.id);
+        localStorage.setItem('name', res.data.user.name);
         console.log(res.data.user.name);
 
-        // Show a success message
         toast.success('Logged in successfully');
         
-        // Navigate to home or wherever necessary
         navigate('/');
       } else {
         toast.error('Login failed. No token or user info found.');

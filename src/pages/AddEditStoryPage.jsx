@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import './addeditstory.css'; // Make sure this path is correct
+import './addeditstory.css';
 import { FaTimes } from 'react-icons/fa';
 
-const AddEditStoryPage = ({ story, closeEditModal }) => { // Added onClose prop to handle modal close
+const AddEditStoryPage = ({ story, closeEditModal }) => {
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
   
@@ -86,7 +86,7 @@ const AddEditStoryPage = ({ story, closeEditModal }) => { // Added onClose prop 
         });
         toast.success('Story added successfully');
       }
-      closeEditModal(); // Close modal on success
+      closeEditModal(); 
     } catch (error) {
       toast.error(error.response?.data?.message || 'Failed to submit story');
     } finally {

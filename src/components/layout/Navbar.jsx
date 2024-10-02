@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import "./navbar.css"; // Import the new CSS file
+import "./navbar.css";
 import AddEditStoryPage from "../../pages/AddEditStoryPage";
 import { FaUser } from 'react-icons/fa';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
-  const [dropdownOpen, setDropdownOpen] = useState(false); // To manage the dropdown state
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const userName = localStorage.getItem("name");
