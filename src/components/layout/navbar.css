@@ -1,0 +1,106 @@
+/* Navbar general styles */
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background-color: #e4e4e4;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Box shadow at the bottom */
+}
+
+.navbar ul {
+    display: flex;
+    list-style-type: none;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+/* For non-logged-in users */
+/* .navbar ul li, */
+.navbar ul li a,
+.navbar ul li button {
+    color: #000;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin: 0 2rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5em;
+    transition: background-color 0.2s ease;
+}
+
+.login-btn {
+    background-color: #7e81ff;
+}
+
+.register-btn {
+    background-color: #ff4747;
+}
+
+.navbar ul li a:hover,
+.navbar ul li button:hover {
+    background-color: #555;
+}
+
+/* For logged-in users */
+.navbar .logged-in {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar .profile-menu {
+    position: relative;
+    cursor: pointer;
+}
+
+.navbar .profile-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ff1a1a;
+}
+
+.navbar .menu-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+/* Dropdown styles */
+.navbar .dropdown {
+    display: none;
+    position: absolute;
+    width: 150px;
+    right: 0;
+    top: 40px;  /* Adjusted from 100% to avoid overlap */
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.navbar .dropdown a,
+.navbar .dropdown button {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-align: left;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+}
+
+.navbar .dropdown a:hover,
+.navbar .dropdown button:hover {
+    background-color: #eee;
+}
+
+/* Show dropdown when .active class is applied */
+.navbar .dropdown.active {
+    display: block;
+}

@@ -1,0 +1,71 @@
+.story-card-container {
+  position: relative;
+  max-width: 300px; /* Adjust width as per design */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.story-card {
+  position: relative;
+  cursor: pointer;
+}
+
+.story-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-content-overlay {
+  position: absolute;
+  bottom: 60px; /* Leave space for the Edit button */
+  left: 0;
+  right: 0;
+  padding: 20px;
+  color: white;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.6) 100%);
+  text-align: left;
+}
+
+.story-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.story-category {
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.edit-button {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 8px 16px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.edit-button a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+.edit-button i {
+  margin-right: 8px;
+}
+
+.edit-button:hover {
+  background-color: #f0f0f0;
+}

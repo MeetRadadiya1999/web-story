@@ -1,0 +1,184 @@
+/* General modal container */
+.story-viewer-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+
+
+.story-viewer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+  height: 70%;
+  /* background-color: #fff; */
+  /* max-width: 1200px; */
+  
+  position: relative;
+}
+
+.slide-container {
+  /* display: flex; */
+  height: 100%;
+  width: 60%;
+  /* flex: 1; */
+  position: relative;
+  text-align: center;
+  background-color: black;
+  /* padding: 20px; */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.slide-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures content covers the container while maintaining aspect ratio */
+  border-radius: 10px; /* Optional: keeps the rounded corners */
+}
+
+/* Timer bar (progress bar for the slides) */
+.timer-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background-color: #ff0000;
+  z-index: 1;
+  transition: width 0.3s;
+}
+
+.overlay-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+}
+
+.close-button,
+.share-button {
+  position: absolute;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.close-button {
+  top: 2em;
+  left: 10px;
+}
+
+.share-button {
+  top: 2em;
+  right: 10px;
+}
+
+.caption, .story-actions {
+  position: absolute;
+  bottom: 10px;
+}
+
+.caption {
+  margin: 10px 0;
+}
+
+.story-actions button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.story-actions button:hover {
+  color: #ff4081;
+}
+
+/* Previous and Next buttons */
+.prev-button,
+.next-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  z-index: 2; /* Ensures buttons stay on top */
+  transition: color 0.3s;
+}
+
+.prev-button:hover,
+.next-button:hover {
+  color: #ff4081;
+}
+
+.prev-button:disabled,
+.next-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Align Previous and Next buttons outside the slide */
+.prev-button {
+  margin-right: 20px;
+}
+
+.next-button {
+  margin-left: 20px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .prev-button,
+  .next-button {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .prev-button,
+  .next-button {
+    font-size: 1.2rem;
+  }
+
+  .close-button,
+  .share-button {
+    font-size: 1.2rem;
+  }
+}

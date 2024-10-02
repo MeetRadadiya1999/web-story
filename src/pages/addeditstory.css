@@ -1,0 +1,116 @@
+/* Modal Overlay */
+.add-edit-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Dim background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Ensure it appears above other content */
+}
+
+/* Modal Container */
+.add-edit-story {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 600px;
+  max-width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow-y: auto;
+  max-height: 90vh; /* For responsive view */
+}
+
+/* Modal Title */
+.add-edit-story h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Close Button */
+.closebtn {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Form Inputs */
+.add-edit-story form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-edit-story input,
+.add-edit-story select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.add-edit-story label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Slides Section */
+.slides-section {
+  margin-top: 20px;
+}
+
+.slide-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.slide-form button {
+  align-self: flex-end;
+}
+
+/* Add Slide Button */
+.button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.remove-button {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.remove-button:hover {
+  background-color: #d93636;
+}
+
+/* Adjust form layout for larger screens */
+@media (min-width: 768px) {
+  .add-edit-story {
+    width: 800px;
+  }
+}
